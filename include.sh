@@ -1,11 +1,5 @@
 #!/bin/bash
 
-## Functions to include
-# Ask for it
-# Show if verbose
-# Dry run or execute
-# Loop parameters
-
 ECHORED()	{
 	echo "`tput setaf 1`${1}`tput setaf 7`"
 }
@@ -57,8 +51,6 @@ DRYRUNOREXECUTE() {
 		then
 			eval $*
 		else
-			#echo -e "\e[01;33m`hostname -s`:`pwd`# $*\e[00m"
-			#echo "`tput setaf 3``hostname -s`:`pwd`# $*`tput setaf 7`"
 			ECHOYELLOW "`hostname -s`:`pwd`# $*"
 		fi
 	else
@@ -71,10 +63,8 @@ LOGOREXECUTE() {
 	then
 		if [ ${log} = "y" ]
 		then
-			eval $* >> /usr/local/occhio/shell/logs/${timestamp}.log
-			#echo -e "\e[00;32mcat /usr/local/occhio/shell/logs/${timestamp}.log\e[00m"
-			#echo "`tput setaf 3`cat /usr/local/occhio/shell/logs/${timestamp}.log`tput setaf 7`"
-			ECHOYELLOW "cat /usr/local/occhio/shell/logs/${timestamp}.log"
+			eval $* >> ~/${timestamp}.log
+			ECHOYELLOW "cat ~/${timestamp}.log"
 		fi
 	else
 		eval $*
