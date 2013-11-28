@@ -1,15 +1,19 @@
 #!/bin/bash
 
 ECHORED()	{
-	echo "`tput setaf 1`${1}`tput setaf 7`"
+	echo -e "\e[1;31m${1}\e[0m"
 }
 
 ECHOYELLOW()	{
-	echo "`tput setaf 3`${1}`tput setaf 7`"
+	echo -e "\e[1;33m${1}\e[0m"
 }
 
 ECHOGREEN()	{
-	echo "`tput setaf 2`${1}`tput setaf 7`"
+	echo -e "\e[1;32m${1}\e[0m"
+}
+
+ECHOBLUE()	{
+	echo -e "\e[1;34m${1}\e[0m"
 }
 
 ASKFORIT() {
